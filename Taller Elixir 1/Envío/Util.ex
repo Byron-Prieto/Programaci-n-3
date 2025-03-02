@@ -1,5 +1,24 @@
 defmodule Util do
 
+  def ingresar_tipo_envio() do
+    mensaje = """
+    Ingrese el tipo de envio:
+    1. Económico
+    2. Express
+    3. Internacional
+    """
+    IO.puts(mensaje)
+
+    case IO.gets("Opción: ") |> String.trim() do
+      "1" -> :economico
+      "2" -> :express
+      "3" -> :internacional
+      _ ->
+        IO.puts("Error: Opción inválida. Intente de nuevo.")
+        ingresar_tipo_envio()
+    end
+  end
+
   def mostrar_mensaje(mensaje) do
     mensaje
     |> IO.puts()

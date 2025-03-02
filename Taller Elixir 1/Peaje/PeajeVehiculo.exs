@@ -1,16 +1,16 @@
 defmodule PeajeVehiculo do
-alias ElixirLS.LanguageServer.Plugins.Util
+
 
   def main do
 
-    placa_vehiculo = "Ingresar la placa del vehículo"
+    placa_vehiculo = "Ingrese la placa del vehículo: "
     |> Util.ingresar_texto(:texto)
 
     tipo_vehiculo = Util.ingresar_tipo_vehiculo()
 
     peso_vehiculo_toneladas =
       if tipo_vehiculo == :camion do
-        "ingrese el peso del vehiculo en toneladas"
+        "ingrese el peso del vehiculo en toneladas: "
         |> Util.ingresar_real(:real)
       else
         0.0

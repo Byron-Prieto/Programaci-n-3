@@ -2,11 +2,11 @@ defmodule CostoEnvio do
 
   def calcular_costo() do
 
-    cliente = Util.ingresar("Ingrese el nombre del cliente:", :texto)
-    peso = Util.ingresar_real("Ingrese el peso del paquete en kg:", :real)
+    cliente = Util.ingresar_texto("Ingrese el nombre del cliente: ", :texto)
+    peso = Util.ingresar_real("Ingrese el peso del paquete en kg: ", :real)
     tipo_envio = Util.ingresar_tipo_envio()
 
-    costo=
+    costo =
       case tipo_envio do
         :economico -> peso * 5000
         :express -> peso * 8000

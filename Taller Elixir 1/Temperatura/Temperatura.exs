@@ -1,6 +1,6 @@
 defmodule Temperatura do
   def main do
-  temperatura = "Ingrese la temperatura en celsius"
+  temperatura = "Ingrese la temperatura en celsius: "
   |> Util.ingresar_real(:real)
 
   fahrenheit = calcularTempFahrenheit (temperatura)
@@ -9,9 +9,10 @@ defmodule Temperatura do
 
   generar_mensaje(fahrenheit, kelvin)
   |> Util.mostrar_mensaje()
+
   end
 
-  defp generar mensaje(fahrenheit, kelvin) do
+  defp generar_mensaje(fahrenheit, kelvin) do
   fahrenheit = fahrenheit |> Float.round(1)
   kelvin = kelvin |> Float.round(1)
 
@@ -28,4 +29,4 @@ defmodule Temperatura do
 
 end
 
-  Temperatura.main()
+Temperatura.main()
