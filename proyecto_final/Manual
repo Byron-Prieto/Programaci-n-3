@@ -1,0 +1,92 @@
+MANUAL DE USUARIO 
+
+==============================================
+REQUISITOS PREVIOS
+==============================================
+- Tener Elixir y Erlang instalados en ambos dispositivos.
+- Ambos dispositivos deben estar en la misma red local.
+- Los archivos del proyecto deben estar presentes en ambos dispositivos (especialmente las carpetas Servidor y Cliente).
+- El archivo my_cookie debe ser el mismo en ambos dispositivos (cópialo si es necesario).
+
+==============================================
+CONFIGURACIÓN DE NOMBRES DE NODO Y COOKIE
+==============================================
+1. Obtén el nombre de host de cada máquina:
+   En la terminal de Windows: hostname
+
+2. Asegúrate de que ambos usan la misma cookie:
+   El archivo my_cookie debe ser idéntico en Servidor/ y Cliente/.
+
+==============================================
+EJECUTAR EL SERVIDOR
+==============================================
+1. Abre una terminal en la carpeta Servidor:
+   cd Proyecto_final\Servidor
+
+2. Ejecuta el servidor con nombre de nodo y cookie:
+   elixir --name nodoservidor@NOMBRE_HOST_SERVIDOR --cookie TU_COOKIE Servidor.exs
+
+   (Reemplaza NOMBRE_HOST_SERVIDOR por el nombre real del host y TU_COOKIE por el contenido del archivo my_cookie)
+
+==============================================
+EJECUTAR EL CLIENTE
+==============================================
+1. Abre una terminal en la carpeta Cliente:
+   cd Proyecto_final\Cliente
+
+2. Ejecuta el cliente con nombre de nodo y cookie:
+   elixir --name cliente1@NOMBRE_HOST_CLIENTE --cookie TU_COOKIE Cliente.exs
+
+   (Reemplaza NOMBRE_HOST_CLIENTE por el nombre real del host y TU_COOKIE por el contenido del archivo my_cookie)
+
+==============================================
+CONEXIÓN ENTRE CLIENTE Y SERVIDOR
+==============================================
+- El cliente intentará conectarse automáticamente al nodo del servidor usando el nombre definido en el código.
+- Si ves el mensaje "¿Conectado?: true", la conexión fue exitosa.
+
+==============================================
+COMANDOS DISPONIBLES EN EL CHAT
+==============================================
+/create sala      → Crear una nueva sala de chat
+/join sala        → Unirse a una sala de chat
+/leave sala       → Salir de una sala
+/list             → Mostrar usuarios en la sala actual
+/usuarios         → Mostrar todos los usuarios conectados
+/history          → Ver historial de mensajes de la sala actual
+/search palabra   → Buscar mensajes anteriores que contengan una palabra
+/exit             → Salir del sistema
+
+==============================================
+FLUJO BÁSICO DE USO
+==============================================
+1. Inicia el servidor en una máquina.
+2. Inicia el cliente en otra máquina (o en la misma, usando otro nombre de nodo).
+3. Ingresa tu nombre de usuario cuando el cliente lo solicite.
+4. Crea o únete a una sala usando /create o /join.
+5. Escribe y presiona Enter para enviar mensajes a la sala.
+6. Usa los comandos para ver usuarios, historial, buscar mensajes, etc.
+7. Para salir, escribe /exit.
+
+==============================================
+NOTAS Y CONSEJOS
+==============================================
+- Puedes tener varios clientes conectados al mismo servidor desde diferentes dispositivos.
+- Si el cliente no se conecta, revisa:
+  * Que ambos nodos usan la misma cookie.
+  * Que los nombres de nodo son correctos y accesibles en la red.
+  * Que el firewall permite conexiones de Erlang (puertos 4369 y un rango dinámico).
+- Los historiales de mensajes se guardan en archivos de texto en la carpeta del servidor.
+
+==============================================
+EJEMPLO DE EJECUCIÓN
+==============================================
+En el servidor:
+elixir --name nodoservidor@DESKTOP-RFDA3KF --cookie TU_COOKIE Servidor.exs
+
+En el cliente:
+elixir --name cliente1@LAPTOP-USER --cookie TU_COOKIE Cliente.exs
+
+==============================================
+¡Listo!
+==============================================
